@@ -48,5 +48,15 @@ RUN conda remove --force -y terminado && \
         jupyter lab build; \
     fi
 
-CMD ["/usr/local/bin/start-elyra.sh"]
+RUN jupyter labextension install jupyterlab-spreadsheet
 
+RUN python3 -m pip install jupyterlab-spellchecker
+
+RUN python3 -m pip install black isort && \
+    python3 -m pip install jupyterlab_code_formatter && \
+    jupyter lab build
+
+RUN python3 -m pip install jupyterlab_vim && \
+    jupyter lab build
+
+CMD ["/usr/local/bin/start-elyra.sh"]
