@@ -48,8 +48,11 @@ RUN conda remove --force -y terminado && \
         jupyter lab build; \
     fi
 
-RUN python3 -m pip install sympy
+RUN python3 -m pip install Unidecode nose latexify-py ipdb \
+    matplotlib seaborn \
+    sympy scipy statsmodels sklearn
 
+# Jupyter extensions
 RUN jupyter labextension install jupyterlab-spreadsheet
 
 RUN python3 -m pip install jupyterlab-spellchecker
