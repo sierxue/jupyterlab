@@ -59,4 +59,7 @@ RUN python3 -m pip install black isort && \
 RUN python3 -m pip install jupyterlab_vim && \
     jupyter lab build
 
+RUN python3 -m pip install jupytext && \
+    jupyter lab build
+
 CMD ["/usr/local/bin/start-elyra.sh"]
